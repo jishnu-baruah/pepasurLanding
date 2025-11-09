@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Pepasur 🐸 | On-Chain Mafia Game",
   description: "An on-chain Mafia game powered by U2U Blockchain. Built for U2U Vietbuidl Hackathon 2025",
   generator: "v0.app",
+  icons: {
+    icon: "/images/PepasurLogo.png",
+  },
 }
 
 export default function RootLayout({
