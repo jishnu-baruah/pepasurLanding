@@ -1,0 +1,800 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #000000;
+  /* Pure black */
+  --foreground: #ffffff;
+  /* Bright White */
+  --card: #111111;
+  /* Darker card background */
+  --card-foreground: #ffffff;
+  --popover: #111111;
+  --popover-foreground: #ffffff;
+  --primary: #4a8c4a;
+  /* Subdued green */
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  /* Darker secondary */
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #cccccc;
+  --accent: #a259ff;
+  /* Cosmic Purple */
+  --accent-foreground: #ffffff;
+  --destructive: #8b0000;
+  /* Darker red */
+  --destructive-foreground: #ffffff;
+  --border: #2a2a2a;
+  /* Subtle border */
+  --input: #1a1a1a;
+  --ring: #4a8c4a;
+  --chart-1: #4a8c4a;
+  --chart-2: #a259ff;
+  --chart-3: #8b0000;
+  --chart-4: #cccc00;
+  --chart-5: #111111;
+  --radius: 0.375rem;
+  --sidebar: #111111;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #4a8c4a;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2a2a2a;
+  --sidebar-ring: #4a8c4a;
+
+  /* Gaming colors */
+  --gaming-black: #000000;
+  --gaming-dark: #111111;
+  --gaming-green: #4a8c4a;
+  --gaming-red: #8b0000;
+  --gaming-purple: #a259ff;
+  --gaming-yellow: #cccc00;
+  --gaming-gray: #1a1a1a;
+  --gaming-white: #ffffff;
+
+  /* Font families */
+  --font-press-start: "Press Start 2P", sans-serif;
+  --font-vt323: "VT323", monospace;
+  --font-silkscreen: "Silkscreen", sans-serif;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --popover: #111111;
+  --popover-foreground: #ffffff;
+  --primary: #4a8c4a;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #cccccc;
+  --accent: #a259ff;
+  --accent-foreground: #ffffff;
+  --destructive: #8b0000;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a2a;
+  --input: #1a1a1a;
+  --ring: #4a8c4a;
+  --chart-1: #4a8c4a;
+  --chart-2: #a259ff;
+  --chart-3: #8b0000;
+  --chart-4: #cccc00;
+  --chart-5: #111111;
+  --sidebar: #111111;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #4a8c4a;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2a2a2a;
+  --sidebar-ring: #4a8c4a;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-press-start-2p: var(--font-press-start-2p);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Gaming colors */
+  --color-gaming-black: var(--gaming-black);
+  --color-gaming-dark: var(--gaming-dark);
+  --color-gaming-green: var(--gaming-green);
+  --color-gaming-red: var(--gaming-red);
+  --color-gaming-purple: var(--gaming-purple);
+  --color-gaming-yellow: var(--gaming-yellow);
+  --color-gaming-gray: var(--gaming-gray);
+  --color-gaming-white: var(--gaming-white);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-press-start);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-press-start);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+  }
+
+  button,
+  .pixel-button,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-press-start);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+  }
+
+  p,
+  span,
+  div,
+  a,
+  label {
+    font-family: var(--font-press-start);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+  }
+
+  code,
+  pre {
+    font-family: var(--font-press-start);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+  }
+}
+
+/* Gaming background with subtle grid and minimal Pacman-style dotted stars */
+.gaming-bg {
+  background-color: #000000;
+  /* Minimal Pacman-style dotted stars */
+  background-image: radial-gradient(circle at 25% 25%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 75% 25%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 25% 75%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px),
+    /* Subtle grid overlay */
+    linear-gradient(rgba(30, 30, 30, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 30, 30, 0.1) 1px, transparent 1px);
+  /* Star positions - minimal and clean */
+  background-size: 200px 200px, 180px 180px, 220px 220px, 160px 160px, 240px 240px,
+    /* Grid */
+    20px 20px, 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced Pepe green glow effects */
+.glow-green-intense {
+  text-shadow: 0 0 2px var(--gaming-green), 0 0 4px var(--gaming-green), 0 0 8px var(--gaming-green), 0 0 16px var(--gaming-green);
+  color: var(--gaming-green);
+}
+
+.glow-green-subtle {
+  text-shadow: 0 0 1px var(--gaming-green), 0 0 2px var(--gaming-green);
+  color: var(--gaming-green);
+}
+
+/* Pixelated image rendering for all sprites/assets */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Enhanced pixelated button styles */
+.pixel-button {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  border-radius: 0;
+  font-family: var(--font-press-start);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 2px currentColor;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8), 2px 2px 0px rgba(0, 0, 0, 0.6), 3px 3px 0px rgba(0, 0, 0, 0.4);
+}
+
+.pixel-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 4px currentColor, 0 0 8px currentColor;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.9), 2px 2px 0px rgba(0, 0, 0, 0.7), 3px 3px 0px rgba(0, 0, 0, 0.5), 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.pixel-button:active {
+  transform: translateY(0);
+  box-shadow: 0 0 1px currentColor;
+}
+
+/* Pixelated input and form elements */
+input,
+textarea,
+select {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  border-radius: 0;
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+}
+
+/* Enhanced pixelated text elements with subtle 3D effects */
+.pixel-text {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #2a2a2a, 2px 2px 0px #1a1a1a, 3px 3px 0px #000000;
+  transform: perspective(200px) rotateX(2deg);
+  transform-style: preserve-3d;
+}
+
+/* Enhanced 3D pixel text variants with cool effects */
+.pixel-text-3d-green {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #4a8c4a;
+  text-shadow: 1px 1px 0px #2d5a2d, 2px 2px 0px #1a3d1a, 3px 3px 0px #000000, 0 0 8px rgba(74, 140, 74, 0.4);
+  transform: perspective(300px) rotateX(3deg);
+  transform-style: preserve-3d;
+}
+
+.pixel-text-3d-red {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #ff4444;
+  text-shadow: 1px 1px 0px #cc0000, 2px 2px 0px #990000, 3px 3px 0px #000000, 0 0 8px rgba(255, 68, 68, 0.4);
+  transform: perspective(300px) rotateX(3deg);
+  transform-style: preserve-3d;
+}
+
+.pixel-text-3d-purple {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #a259ff;
+  text-shadow: 1px 1px 0px #7a3fcc, 2px 2px 0px #5a2e99, 3px 3px 0px #000000, 0 0 8px rgba(162, 89, 255, 0.4);
+  transform: perspective(300px) rotateX(3deg);
+  transform-style: preserve-3d;
+}
+
+.pixel-text-3d-yellow {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #ffea00;
+  text-shadow: 1px 1px 0px #ccb800, 2px 2px 0px #998800, 3px 3px 0px #000000, 0 0 8px rgba(255, 234, 0, 0.4);
+  transform: perspective(300px) rotateX(3deg);
+  transform-style: preserve-3d;
+}
+
+/* Improved white text styles with subtle 3D effect */
+.pixel-text-3d-white {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #2a2a2a, 2px 2px 0px #1a1a1a, 3px 3px 0px #000000, 0 0 6px rgba(255, 255, 255, 0.2);
+  transform: perspective(200px) rotateX(2deg);
+  transform-style: preserve-3d;
+}
+
+.pixel-text-3d-blue {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #00aaff;
+  text-shadow: 1px 1px 0px #0088cc, 2px 2px 0px #006699, 3px 3px 0px #000000, 0 0 8px rgba(0, 170, 255, 0.4);
+  transform: perspective(300px) rotateX(3deg);
+  transform-style: preserve-3d;
+}
+
+.pixel-text-3d-orange {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #ff8800;
+  text-shadow: 1px 1px 0px #cc6600, 2px 2px 0px #994400, 3px 3px 0px #000000, 0 0 8px rgba(255, 136, 0, 0.4);
+  transform: perspective(300px) rotateX(3deg);
+  transform-style: preserve-3d;
+}
+
+/* Retro font classes */
+.press-start {
+  font-family: var(--font-press-start);
+}
+
+.vt323 {
+  font-family: var(--font-vt323);
+}
+
+.silkscreen {
+  font-family: var(--font-silkscreen);
+}
+
+/* Enhanced glow effects for colors */
+.glow-green {
+  text-shadow: 0 0 5px var(--gaming-green), 0 0 10px var(--gaming-green), 0 0 15px var(--gaming-green), 0 0 20px var(--gaming-green);
+  color: var(--gaming-green);
+}
+
+.glow-red {
+  text-shadow: 0 0 5px var(--gaming-red), 0 0 10px var(--gaming-red), 0 0 15px var(--gaming-red), 0 0 20px var(--gaming-red);
+  color: var(--gaming-red);
+}
+
+.glow-purple {
+  text-shadow: 0 0 5px var(--gaming-purple), 0 0 10px var(--gaming-purple), 0 0 15px var(--gaming-purple), 0 0 20px var(--gaming-purple);
+  color: var(--gaming-purple);
+}
+
+.glow-yellow {
+  text-shadow: 0 0 5px var(--gaming-yellow), 0 0 10px var(--gaming-yellow), 0 0 15px var(--gaming-yellow), 0 0 20px var(--gaming-yellow);
+  color: var(--gaming-yellow);
+}
+
+.glow-white {
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff;
+  color: #ffffff;
+}
+
+.glow-blue {
+  text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 15px #00aaff, 0 0 20px #00aaff;
+  color: #00aaff;
+}
+
+/* Retro animations with stepped transitions */
+@keyframes retro-pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.retro-pulse {
+  animation: retro-pulse 2s steps(4) infinite;
+}
+
+@keyframes retro-blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.retro-blink {
+  animation: retro-blink 1s steps(2) infinite;
+}
+
+/* Pixel art loader */
+.pixel-loader {
+  width: 40px;
+  height: 40px;
+  border: 2px solid;
+  border-color: var(--gaming-green) transparent var(--gaming-red) transparent;
+  border-radius: 0;
+  animation: retro-spin 1s steps(8) infinite;
+}
+
+@keyframes retro-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Progress bar with pixel styling */
+.pixel-progress {
+  height: 16px;
+  border: 1px solid var(--gaming-green);
+  border-radius: 0;
+  background: var(--gaming-black);
+  overflow: hidden;
+  box-shadow: 0 0 1px var(--gaming-green);
+}
+
+.pixel-progress::-webkit-progress-bar {
+  background: var(--gaming-black);
+}
+
+.pixel-progress::-webkit-progress-value {
+  background: var(--gaming-green);
+  image-rendering: pixelated;
+}
+
+.pixel-progress::-moz-progress-bar {
+  background: var(--gaming-green);
+  image-rendering: pixelated;
+}
+
+/* Gaming pixel art animation */
+@keyframes pixel-breath {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pixel-breath {
+  animation: pixel-breath 2s steps(4) infinite;
+}
+
+/* Scanline effect for retro gaming feel */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 1px,
+      transparent 2px);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Enhanced loading animation styles */
+.loading-glow {
+  box-shadow: 0 0 10px rgba(74, 140, 74, 0.3), 0 0 20px rgba(74, 140, 74, 0.2), 0 0 30px rgba(74, 140, 74, 0.1);
+}
+
+/* ASUR Game Pixel Button Component */
+.btn-pixel {
+  /* Base styling */
+  font-family: var(--font-press-start);
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #0b3f2a;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  min-height: 48px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  /* 3D Base Colors */
+  background: #2ecc71;
+  border-bottom: 4px solid #1f7a49;
+  box-shadow: 0 4px 0 #1f7a49, 0 8px 0 #0b3f2a, 0 0 0 1px #1f7a49;
+
+  /* Transitions */
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Disable font smoothing for pixelated look */
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Bevel highlight pseudo-element */
+.btn-pixel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.3) 100%);
+  border-radius: 6px 6px 0 0;
+  pointer-events: none;
+}
+
+/* Hover State - Button lifts up */
+.btn-pixel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 0 #1f7a49, 0 11px 0 #0b3f2a, 0 0 0 1px #1f7a49, 0 0 20px rgba(46, 204, 113, 0.3);
+}
+
+/* Active/Pressed State - Button sinks down */
+.btn-pixel:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #1f7a49, 0 4px 0 #0b3f2a, 0 0 0 1px #1f7a49;
+}
+
+/* Focus State - Accessibility glow */
+.btn-pixel:focus {
+  outline: none;
+  box-shadow: 0 4px 0 #1f7a49, 0 8px 0 #0b3f2a, 0 0 0 1px #1f7a49, 0 0 0 3px rgba(46, 204, 113, 0.5);
+}
+
+/* Disabled State */
+.btn-pixel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 0 #1f7a49, 0 8px 0 #0b3f2a, 0 0 0 1px #1f7a49;
+}
+
+.btn-pixel:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 0 #1f7a49, 0 8px 0 #0b3f2a, 0 0 0 1px #1f7a49;
+}
+
+/* Color Variants */
+.btn-pixel--red {
+  background: #e74c3c;
+  border-bottom-color: #c0392b;
+  box-shadow: 0 4px 0 #c0392b, 0 8px 0 #7b241c, 0 0 0 1px #c0392b;
+  text-shadow: 1px 1px 0px #7b241c;
+}
+
+.btn-pixel--red:hover {
+  box-shadow: 0 7px 0 #c0392b, 0 11px 0 #7b241c, 0 0 0 1px #c0392b, 0 0 20px rgba(231, 76, 60, 0.3);
+}
+
+.btn-pixel--red:active {
+  box-shadow: 0 2px 0 #c0392b, 0 4px 0 #7b241c, 0 0 0 1px #c0392b;
+}
+
+.btn-pixel--red:focus {
+  box-shadow: 0 4px 0 #c0392b, 0 8px 0 #7b241c, 0 0 0 1px #c0392b, 0 0 0 3px rgba(231, 76, 60, 0.5);
+}
+
+.btn-pixel--blue {
+  background: #3498db;
+  border-bottom-color: #2980b9;
+  box-shadow: 0 4px 0 #2980b9, 0 8px 0 #1b4f72, 0 0 0 1px #2980b9;
+  text-shadow: 1px 1px 0px #1b4f72;
+}
+
+.btn-pixel--blue:hover {
+  box-shadow: 0 7px 0 #2980b9, 0 11px 0 #1b4f72, 0 0 0 1px #2980b9, 0 0 20px rgba(52, 152, 219, 0.3);
+}
+
+.btn-pixel--blue:active {
+  box-shadow: 0 2px 0 #2980b9, 0 4px 0 #1b4f72, 0 0 0 1px #2980b9;
+}
+
+.btn-pixel--blue:focus {
+  box-shadow: 0 4px 0 #2980b9, 0 8px 0 #1b4f72, 0 0 0 1px #2980b9, 0 0 0 3px rgba(52, 152, 219, 0.5);
+}
+
+.btn-pixel--purple {
+  background: #9b59b6;
+  border-bottom-color: #8e44ad;
+  box-shadow: 0 4px 0 #8e44ad, 0 8px 0 #5b2c6f, 0 0 0 1px #8e44ad;
+  text-shadow: 1px 1px 0px #5b2c6f;
+}
+
+.btn-pixel--purple:hover {
+  box-shadow: 0 7px 0 #8e44ad, 0 11px 0 #5b2c6f, 0 0 0 1px #8e44ad, 0 0 20px rgba(155, 89, 182, 0.3);
+}
+
+.btn-pixel--purple:active {
+  box-shadow: 0 2px 0 #8e44ad, 0 4px 0 #5b2c6f, 0 0 0 1px #8e44ad;
+}
+
+.btn-pixel--purple:focus {
+  box-shadow: 0 4px 0 #8e44ad, 0 8px 0 #5b2c6f, 0 0 0 1px #8e44ad, 0 0 0 3px rgba(155, 89, 182, 0.5);
+}
+
+/* Hero Text Styling */
+.pixel-text-hero {
+  font-family: var(--font-press-start);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  color: #4a8c4a;
+  text-shadow: 2px 2px 0px #2d5a2d, 4px 4px 0px #1a3d1a, 6px 6px 0px #000000, 0 0 20px rgba(74, 140, 74, 0.5);
+  transform: perspective(400px) rotateX(4deg);
+  transform-style: preserve-3d;
+}
+
+/* Galaxy Button Styles */
+.btn-pixel-galaxy {
+  font-family: var(--font-press-start);
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  min-height: 56px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  image-rendering: pixelated;
+}
+
+.btn-pixel-galaxy--green {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  border-bottom: 4px solid #1f7a49;
+  box-shadow: 0 4px 0 #1f7a49, 0 8px 0 #0b3f2a, 0 0 0 1px #1f7a49, 0 0 30px rgba(46, 204, 113, 0.3);
+  text-shadow: 1px 1px 0px #0b3f2a, 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-pixel-galaxy--green:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #1f7a49, 0 10px 0 #0b3f2a, 0 0 0 1px #1f7a49, 0 0 40px rgba(46, 204, 113, 0.5);
+}
+
+.btn-pixel-galaxy--green:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 0 #1f7a49, 0 6px 0 #0b3f2a, 0 0 0 1px #1f7a49;
+}
+
+.btn-pixel-galaxy--purple {
+  background: linear-gradient(135deg, #a259ff 0%, #8e44ad 100%);
+  border-bottom: 4px solid #5b2c6f;
+  box-shadow: 0 4px 0 #5b2c6f, 0 8px 0 #3d1d4a, 0 0 0 1px #5b2c6f, 0 0 30px rgba(162, 89, 255, 0.3);
+  text-shadow: 1px 1px 0px #3d1d4a, 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-pixel-galaxy--purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #5b2c6f, 0 10px 0 #3d1d4a, 0 0 0 1px #5b2c6f, 0 0 40px rgba(162, 89, 255, 0.5);
+}
+
+.btn-pixel-galaxy--purple:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 0 #5b2c6f, 0 6px 0 #3d1d4a, 0 0 0 1px #5b2c6f;
+}
